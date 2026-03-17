@@ -1,6 +1,4 @@
-// =======================
-// ESTADO
-// =======================
+//estado
 let tarjetas = [];
 let idContador = 1;
 
@@ -15,9 +13,8 @@ const leerCampo = (selector) => {
 
 const galeria = document.querySelector("#galeria");
 
-// =======================
-// CREAR TARJETA
-// =======================
+// crear tarjeta
+
 function crearElementoTarjeta({ id, titulo, descripcion, categoria }) {
   const tarjeta = document.createElement("article");
 
@@ -34,9 +31,7 @@ function crearElementoTarjeta({ id, titulo, descripcion, categoria }) {
   return tarjeta;
 }
 
-// =======================
-// CONTADOR
-// =======================
+// contador
 function actualizarContador() {
   const visibles = galeria.querySelectorAll(".tarjeta:not(.oculta)").length;
 
@@ -57,9 +52,7 @@ function actualizarContador() {
   }
 }
 
-// =======================
-// AGREGAR TARJETA
-// =======================
+// agregar tarjeta
 function agregarTarjeta() {
   const titulo = leerCampo("#input-titulo");
   const descripcion = leerCampo("#input-descripcion");
@@ -93,9 +86,8 @@ function agregarTarjeta() {
 document.querySelector("#btn-agregar")
   .addEventListener("click", agregarTarjeta);
 
-// =======================
-// ELIMINAR TARJETA (DELEGACIÓN)
-// =======================
+// eliminar tarjeta
+
 galeria.addEventListener("click", (e) => {
   if (!e.target.matches(".btn-eliminar")) return;
 
@@ -103,7 +95,7 @@ galeria.addEventListener("click", (e) => {
 
   tarjetas = tarjetas.filter(t => t.id !== idEliminar);
 
-  // 🔥 CORRECCIÓN AQUÍ (data-id)
+
   const elementoTarjeta = galeria.querySelector(`[data-id="${idEliminar}"]`);
 
   if (elementoTarjeta) elementoTarjeta.remove();
@@ -111,9 +103,8 @@ galeria.addEventListener("click", (e) => {
   actualizarContador();
 });
 
-// =======================
-// FILTROS
-// =======================
+// filtros
+
 const btnsFiltro = document.querySelectorAll(".btn-filtro");
 
 btnsFiltro.forEach(btn => {
