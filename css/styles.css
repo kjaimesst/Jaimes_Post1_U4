@@ -1,0 +1,27 @@
+.tarjeta {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 8px;
+}
+
+.badge {
+  background: #333;
+  color: white;
+  padding: 3px 8px;
+  border-radius: 5px;
+}
+
+.oculta {
+  display: none;
+}
+
+.activo {
+  background-color: black;
+  color: white;
+}
+
+.mensaje-vacio {
+  text-align: center;
+  font-weight: bold;
+}
