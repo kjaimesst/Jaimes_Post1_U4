@@ -47,8 +47,17 @@ function actualizarContador() {
 
   const sinTarjetas = galeria.querySelectorAll(".tarjeta").length === 0;
 
+  let mensaje = galeria.querySelector(".mensaje-vacio");
+
   if (sinTarjetas) {
-    galeria.innerHTML = `<p class="mensaje-vacio">No hay tarjetas. Crea la primera.</p>`;
+    if (!mensaje) {
+      mensaje = document.createElement("p");
+      mensaje.classList.add("mensaje-vacio");
+      mensaje.textContent = "No hay tarjetas. Crea la primera.";
+      galeria.appendChild(mensaje);
+    }
+  } else {
+    if (mensaje) mensaje.remove();
   }
 }
 
@@ -74,7 +83,7 @@ function agregarTarjeta() {
 
   const elemento = crearElementoTarjeta(nuevaTarjeta);
 
-  // Si había mensaje vacío, lo quita
+  // Si habia mensaje vacío, lo quita
   const msg = galeria.querySelector(".mensaje-vacio");
   if (msg) msg.remove();
 
